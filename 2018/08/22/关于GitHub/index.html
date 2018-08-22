@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>YuFy</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="#一、github上传项目
+
+gitHub是一个面向开源及私有软件项目的托管平台，因为只支持git 作为唯一的版本库格式进行托管，故名gitHub。
+
+代码托管项目管理平台还有许多，最推荐的就是Gi,"> 
+    <meta name="author" content="苏日俪格"> 
+    <link rel="alternative" href="atom.xml" title="YuFy" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8691406134231910",
+        enable_page_level_ads: true
+      });
+    </script>
+
+</head>
+
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">关于GitHub</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">关于GitHub</h1>
+        <div class="stuff">
+            <span>八月 22, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/在项目中掘金/">在项目中掘金</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>#一、github上传项目</p>
+<blockquote>
+<p>gitHub是一个面向<a href="https://baike.baidu.com/item/%E5%BC%80%E6%BA%90/20720669" target="_blank" rel="noopener">开源</a>及私有<a href="https://baike.baidu.com/item/%E8%BD%AF%E4%BB%B6/12053" target="_blank" rel="noopener">软件</a>项目的托管平台，因为只支持git 作为唯一的版本库格式进行托管，故名gitHub。</p>
+</blockquote>
+<p>代码托管项目管理平台还有许多，最推荐的就是Github和Coding，其次是开源中国的码云。<br>GitHub的API：<a href="https://api.github.com/" target="_blank" rel="noopener">https://api.github.com/</a><br>exp：通过api访问个人信息：<a href="https://api.github.com/users/yufy1314" target="_blank" rel="noopener">https://api.github.com/users/yufy1314</a></p>
+<p>###1.去git官网下载git工具<br>下载完了点击git Bash弹出命令框：<br><img src="https://upload-images.jianshu.io/upload_images/8560482-18fcf258770d0057.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>###2.登录Github官网或客户端</p>
+<p>###3.创建仓库<br>⑴ 点击New repository如图：<br><img src="https://upload-images.jianshu.io/upload_images/8560482-f54b0f2dfa528297.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>⑵ 进入仓库以后如图：<br><img src="https://upload-images.jianshu.io/upload_images/8560482-939baab1d71377ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><strong>如果在这步添加了README文件，相当于给自己挖了一个坑</strong>，在后面你会发现最后push代码始终失败：<br>D:\myselfProject\my-webpack-project&gt;git push <a href="https://github.com/YuFy1314/my-webpack-project.git" target="_blank" rel="noopener">https://github.com/YuFy1314/my-webpack-project.git</a><br>To <a href="https://github.com/YuFy1314/my-webpack-project.git" target="_blank" rel="noopener">https://github.com/YuFy1314/my-webpack-project.git</a><br> ! [rejected]        master -&gt; master (non-fast-forward)<br>error: failed to push some refs to ‘<a href="https://github.com/YuFy1314/my-webpack-project.git&#39;" target="_blank" rel="noopener">https://github.com/YuFy1314/my-webpack-project.git&#39;</a><br>hint: Updates were rejected because the tip of your current branch is behind<br>hint: its remote counterpart. Integrate the remote changes (e.g.<br>hint: ‘git pull …’) before pushing again.<br>hint: See the ‘Note about fast-forwards’ in ‘git push –help’ for details.<br>这一堆英文的意思就是<em>在远程仓库初始化之后，发现了一个你本地没有的文件，它就会被认为是别人提交过的代码，你没有pull而直接选择了push</em>，这个时候你直接输入<code>git pull --rebase origin master</code>，把远程代码拉下来就ok了</p>
+<p>⑶ 填写完了直接点击创建仓库Create repository</p>
+<p>###4.上传源代码：<br>仓库创建完成以后，你会看见如图中所示，生成了自己的git地址，还有git命令，后面要根据这些命令将项目提交到github中<br><img src="https://upload-images.jianshu.io/upload_images/8560482-2b3a99f521119a20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>###5.生成公钥<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -C &apos;1653416703@qq.com&apos; -t rsa</span><br></pre></td></tr></table></figure></p>
+<p>⑴ 通过这行代码生成公钥,这个邮箱要写自己注册github时的邮箱,或者是Primary email address，-C是大写，输入后按enter后一直回车就可以了，如图：<br><img src="https://upload-images.jianshu.io/upload_images/8560482-3e74abc64c0b6a89.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>⑵ 然后根据生成的路径去找id-rsa.pub，找到后用编辑器打开，如图：<br><img src="https://upload-images.jianshu.io/upload_images/8560482-9f8edd5014902d58.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>###6.填写公钥<br>⑴ 打开github，找到设置Settings<br><img src="https://upload-images.jianshu.io/upload_images/8560482-98d91f91460cfa51.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>⑵ 点击SSH and GPG keys：<br><img src="https://upload-images.jianshu.io/upload_images/8560482-e4bc05aaed864062.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>⑶ 点击绿色的按钮New SSH key：<br>⑷ Title是这个公钥的名字，当然不写也可以，就是为了将来公钥多了好区别；主要是key，在我们之前生成的公钥文件里面，把内容全部复制下来，注意key开头的写法（Begins with ‘ssh-rsa’, ‘ssh-dss’, ‘ssh-ed25519’, ‘ecdsa-sha2-nistp256’, ‘ecdsa-sha2-nistp384’, or ‘ecdsa-sha2-nistp521’），填写完以后点击Add SSH key：<br><img src="https://upload-images.jianshu.io/upload_images/8560482-b7bd7933feba5142.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>⑸ 成功之后跳转到这里：<br><img src="https://upload-images.jianshu.io/upload_images/8560482-939be247b5c454fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>###7.接下来的操作均用命令提示符来完成，按照之前提到的git命令来执行，如图：<br>⑴ 进入自己的项目目录，如图：<br><img src="https://upload-images.jianshu.io/upload_images/8560482-a49a0ebde05c8ccc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>⑵ 初始化目录为git项目，如图：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8560482-92b5635c8628f7e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>这时细心的人会发现项目目录中多了一个.git文件夹<br>⑶ 添加说明文件到暂存区，如图：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add README.md</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8560482-278bfda7348cb095.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>因为我的项目目录下有多个文件，所以要用 * 代替<br>⑷ 提交到本地仓库并写日志，”first commit”这里的内容是在你提交项目到github中每一个文件夹/文件都会显示的内容，如图：<br><img src="https://upload-images.jianshu.io/upload_images/8560482-ddc005bacb95adf2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;first commit&quot;</span><br></pre></td></tr></table></figure></p>
+<p>输入完代码回车：<br><img src="https://upload-images.jianshu.io/upload_images/8560482-979031f0cd733b96.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>⑸ 添加远程主机，主机名为origin 地址为<a href="https://github.com/YuFy1314/howzhi.git" target="_blank" rel="noopener">https://github.com/YuFy1314/howzhi.git</a> 这个地址就是在第4步中上传源代码的那个地址复制下来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/YuFy1314/howzhi.git</span><br></pre></td></tr></table></figure></p>
+<p>输入完上面的代码直接回车：<br><img src="https://upload-images.jianshu.io/upload_images/8560482-19e725ed79eb8120.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>⑹ 本地的master分支推送到origin主机，同时指定origin为默认主机，后面就可以不加任何参数使用git push了，-u 参数指定一个默认主机，如图：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure></p>
+<p>输入完上面的代码直接回车:<br><img src="https://upload-images.jianshu.io/upload_images/8560482-acb22f909583e332.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>###8.到你的github主页的项目中看到你刚上传的项目，如图：<br><img src="https://upload-images.jianshu.io/upload_images/8560482-f9f5a8f5e2ab5708.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>#二、通过github域名访问<br>※如果你想通过github域名直接访问你的这个项目的话，那么可以进入这个项目的settings，将你的仓库名Repository name修改为（你的用户名.github.io）：<br><img src="https://upload-images.jianshu.io/upload_images/8560482-e3d0a73558b7e750.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>然后将页面拉到下方，确认GitHub Pages下的Source中的值为master branch，如果不是自行修改即可：<br><img src="https://upload-images.jianshu.io/upload_images/8560482-aab6c427751dec87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>#三、更新github项目<br>⑴ 在github中进入要克隆的项目，右侧有一个绿色按钮Clone or download，点击之后出现一个URL，将它复制下来，如图：<br><img src="https://upload-images.jianshu.io/upload_images/8560482-73608c3d12803b19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>⑵ 当修改完项目的时候，细心的人在本地项目目录中会发现，前面都有个红色感叹号，这个时候在命令提示符中进入磁盘中存放这个项目的位置，依次使用命令行（git add .）将修改的文件添加到暂存区中、（git commit -a）提交和上次提交对比后有变动的文件(这时本地项目目录中的叹号变成了绿色的对号，就代表提交成功了；如果这步出现了错误，就输入<code>git status</code>查看状态，将没有提交成功的用<code>git commit -m &quot;描述&quot;</code>重新提交一遍)、（git push origin master）将分支push到github上，将github上的项目更新完毕。</p>
+<p>希望阅读完本文可以帮助到您，谢谢O(∩_∩)O~<br>欢迎来<strong><a href="https://github.com/YuFy1314" target="_blank" rel="noopener">我的GitHub</a></strong>，喜欢的可以star，项目随意fork，支持转载但要下标注，同时恭候：<strong><a href="http://www.cnblogs.com/yufy/" target="_blank" rel="noopener">我的博客</a></strong>   <strong><a href="https://yufy1314.github.io/" target="_blank" rel="noopener">Resume</a></strong></p>
+<p>######等一下( •́ .̫ •̀ )，我还有最后一句话：</p>
+<p>######这里虽然没有都市的繁华，</p>
+<p>######也没有山林的鸟语花香，</p>
+<p>######只有一片如水的宁静，</p>
+<p>######古人云：</p>
+<p>######既来之则安之，</p>
+<p>######既然来到了这里，</p>
+<p>######就可以静心休憩你的灵魂，</p>
+<p>######调养你疲惫的心，</p>
+<p>######再见…<br><img src="http://upload-images.jianshu.io/upload_images/8560482-2c686cd992209688.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                    
+                        <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
