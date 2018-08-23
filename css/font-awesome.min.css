@@ -2833,6 +2833,10 @@
     content: "\f2b2"
 }
 
+.fa-blogger:before {
+    content: "\f37c"
+}
+
 .fa-google-plus-circle:before,
 .fa-google-plus-official:before {
     content: "\f2b3"
