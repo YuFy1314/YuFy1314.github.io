@@ -173,7 +173,7 @@
 </ul>
 </blockquote>
 <p>在这里不得不说一下：<br>webpack、gulp和grunt都是在nodeJs的环境下运行的，而在中大型项目或产品中，nodeJs一般用做中间层，做数据处理和转发，然后再由底层语言进行底层开发，比如我们公司的产品就是这种架构，C++作为底层系统的开发；</p>
-<p>看了上面的内容，我们虽然知道了它在项目中用到的好处，可是我们没有见过，没有真凭实据，可以参考一下这个项目的demo(<a href="https://segmentfault.com/a/1190000012848772)，一步一步让你的项目越来越快；那么webpack具体怎么用的呢？下面就来逐步介绍一下，为了大家能学到，我这里新建一个项目做示范：" target="_blank" rel="noopener">https://segmentfault.com/a/1190000012848772)，一步一步让你的项目越来越快；那么webpack具体怎么用的呢？下面就来逐步介绍一下，为了大家能学到，我这里新建一个项目做示范：</a></p>
+<p>看了上面的内容，我们虽然知道了它在项目中用到的好处，可是我们没有见过，没有真凭实据，可以参考一下这个项目的<a href="https://segmentfault.com/a/1190000012848772" target="_blank" rel="noopener">demo</a>，一步一步让你的项目越来越快；那么webpack具体怎么用的呢？下面就来逐步介绍一下，为了大家能学到，我这里新建一个项目做示范：</p>
 <h6 id="一、安装vue和webpack"><a href="#一、安装vue和webpack" class="headerlink" title="一、安装vue和webpack"></a>一、安装vue和webpack</h6><ol>
 <li>首先webpack是在node环境下运行的，电脑环境中需要有node和npm，并且node版本必须是v8.5以上的，否则不支持webpack 4。在本地创建一个项目文件夹（ps:文件名不能包含大写字母），输入dos命令<code>npm init</code>来初始化工程，一路回车下来会有一个package.json配置文件生成</li>
 <li>先安装上生产环境的vue，其他的开发环境的依赖包等会单独安装，不理解他们的区别的好好看看–save-dev和–save的区别，development很明显就是我们开发所需要的依赖包，而打包好上线的话是不需要这些包的，一来各种包加起来太大，二来它只是我们开发提高效率的工具而已；<br>先输入<code>npm i vue</code>安装上vue</li>
