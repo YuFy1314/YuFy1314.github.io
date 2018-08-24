@@ -157,7 +157,7 @@
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
                 <p>大家好，我是苏日俪格，这篇文章可能会有一些遗漏的地方，当初写完没有保存，结果好多后来写的都没存上重新又写的，有问题的地方望读者告知，谢谢！</p>
-<p>看到文章名字就大致清楚，本文是在vue脚手架下使用Element和less技术进行开发的一个demo讲解。在之前的<a href="https://www.jianshu.com/p/87d6754f6782" target="_blank" rel="noopener">Vue项目中的一些问题</a>这篇文章中，我虽然不推荐用vue-cli，但是项目中很多时候不得不用vue-cli（ps:这并不是在打自己的脸哦），毕竟尤大大开发这东西太新鲜，没有理由不用他；于是乎开始构建一个新的项目，由于个人不喜欢安装全局的东西，毕竟每个项目的需求不同，所以安装的框架以及构建工具的版本也是不同的，而vue-cli官方的做法就是安装全局的，我反其道而为之，结果遭到了一大波error的攻击，接下来我等待的就是一下午的折磨…</p>
+<p>看到文章名字就大致清楚，本文是在vue脚手架下使用Element和less技术进行开发的一个demo讲解。在之前的<a href="https://yufy1314.github.io/2018/08/08/Vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" target="_blank" rel="noopener">Vue项目中的一些问题</a>这篇文章中，我虽然不推荐用vue-cli，但是项目中很多时候不得不用vue-cli（ps:这并不是在打自己的脸哦），毕竟尤大大开发这东西太新鲜，没有理由不用他；于是乎开始构建一个新的项目，由于个人不喜欢安装全局的东西，毕竟每个项目的需求不同，所以安装的框架以及构建工具的版本也是不同的，而vue-cli官方的做法就是安装全局的，我反其道而为之，结果遭到了一大波error的攻击，接下来我等待的就是一下午的折磨…</p>
 <p>还好vue的生态系统够大，社区活跃度也很高，去了好多站点发了相关帖子包括尤大大的github也留下了我的脚印，最后找到了问题所在。</p>
 <h5 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h5><p>在看这个问题之前首先要保证电脑中存在<a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">node</a>环境，因为下面都需要在node环境下用npm包管理工具会很慢，所以下面可以选择用<a href="http://npm.taobao.org/" target="_blank" rel="noopener">cnpm淘宝镜像</a><br>新建一个目录，输入dos命令<code>npm init</code>初始化项目<br>开始安装本地webpack：<code>npm install webpack webpack-cli -D</code>，由于webpack 4+版本需要webpack-cli的支持，所以都得安装，之前的版本则不需要</p>
 <h5 id="安装vue"><a href="#安装vue" class="headerlink" title="安装vue"></a>安装vue</h5><p><code>npm install vue --save</code><br>下面可以选择两种方式安装vue-cli：</p>
