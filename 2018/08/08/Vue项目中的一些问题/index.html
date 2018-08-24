@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    YuFy
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="yufy" />
+    
+    	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">苏日俪格</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/JS取经之路/">JS取经之路</a></li><li><a class="category-link" href="/categories/专业小tip/">专业小tip</a></li><li><a class="category-link" href="/categories/关于VueJs/">关于VueJs</a></li><li><a class="category-link" href="/categories/在项目中掘金/">在项目中掘金</a></li><li><a class="category-link" href="/categories/深入浅出ES6教程/">深入浅出ES6教程</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/yufy1314" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a title="book" href="https://www.jianshu.com/u/72f239ec5d03" target="_blank" rel="noopener">
+                            <i class="icon fa fa-book"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(http://img0.ph.126.net/kxqqB9P5h19_PMSD22Idfw==/2176364520027250398.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Vue项目中的一些问题</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <p>许多人做vue项目，不清楚为什么做的是vue项目而不是jquery项目，为什么这么用，用了之后也没有考虑过对不对，在上周公司开了一个会，说了一些关于我们部门的产品的问题，我总结了三个为什么，下面我把我的一些理解用大白话跟大家描述一下，请放心，我的语文是体育老师教的，有我这样的描述，许多人才能看得更明白：</p>
+<h4 id="为什么用vue框架？"><a href="#为什么用vue框架？" class="headerlink" title="为什么用vue框架？"></a>为什么用vue框架？</h4><ol>
+<li>它优化了项目中的过多的DOM操作，由于对DOM的操作是需要浏览器对页面不断的重绘重排并解析渲染出来，这一过程非常的消耗内存，如果项目过大就会造成CPU占用量过大，造成卡死等现象，既然都用了vue框架，那么就尽可能的减少一切jquery语句的出现；</li>
+<li>MVVM的设计理念，真正的实现视图数据的同步，即渲染数据的时候会触发访问器getter函数，通过每一个组件中的watcher也就是订阅者来监听数据的变化，当数据变化的时候，会调用setter函数，再通过defineProperty方法追踪到这个对象的数据，然后重新渲染模板，生成新的Virtual DOM并更新；</li>
+<li>将项目组件化，大大降低了耦合度，把页面结构或者功能需求相同的提成单独的组件，这样可以提高代码复用率和减少冗余度；</li>
+<li>它是一个spa，即单页面应用程序，可以通过vue-router来路由整个项目的各个组件部分；组件之间通讯的状态又可以用vuex来进行统一管理；</li>
+<li>他是中国人尤雨溪开发的，所以API会对国人比较友好，简单易学而且轻量；</li>
+<li>vue的生态系统还是很大的，虽然还处于成长阶段，但近几年来比较火爆，不断出现更多的第三方插件来帮你打辅助，完善项目。</li>
+</ol>
+<p>谨记：vue项目和我们正常写的html的项目是不一样的，一定要深刻理解spa的含义，如果写了很多的组件，但是确实同时加载到一个html的，那这又和正常写的html页面有什么区别，如果项目够大，反而会突出spa的缺点，切换路由变更组件导致没必要的内存泄漏，这又是何苦呢，用一个框架之前一定要搞明白两件事：它是什么？为什么用它？</p>
+<p>路由懒加载：cpu不运行，但是内存已加载<br>组件异步加载：完全不加载</p>
+<h4 id="vue项目为什么要用nodeJs："><a href="#vue项目为什么要用nodeJs：" class="headerlink" title="vue项目为什么要用nodeJs："></a>vue项目为什么要用nodeJs：</h4><p>nodeJs是基于chrome v8引擎的JavaScript的运行环境，所以执行JavaScript代码快会非常的高效，可以说唯快不破；当然也可以实现动态引入require函数，虽然有ES6的引入，但import毕竟是静态引入，当我们在代码块里面想要用的时候，import是没办法提供所需的；Node.js 使用了事件驱动和非阻塞模型支持的事件循环的架构而得以轻量和高效；最重要的就是它含有包管理器，通过npm官网使用别人的源码包就要通过npm安装上，nodeJs会使用Module模块去划分不同的功能，而模块之间的依赖关系就是需要npm来处理的。</p>
+<h4 id="为什么要用NW？"><a href="#为什么要用NW？" class="headerlink" title="为什么要用NW？"></a>为什么要用NW？</h4><p>nw.js是intel支持的一个基于nodeJs和chrome的应用程序运行环境，还有一个是github支持的Electron，这个相对于nw比较火，更多参考<a href="http://tangiblejs.com/posts/nw-js-and-electron-compared-2016-edition" target="_blank" rel="noopener">nw.js &amp; Electron</a>，在这里用的是nw.js，也就是说经过它的打包虽然看起来是一个电脑应用程序，但他实质上相当于一个UI浏览器，只不过是以一个轻量的应用程序呈现出来，因此完全支持浏览器的所有功能（ps：顿时感觉现在的JavaScript脚本语言还是很牛X的，能写各种项目以及产品，满足你一切的欲望）；它支持nodeJs中所有的API和第三方模块；同时也支持本地的接口；可以直接从DOM和Web Workers调用Node.js模块；适用于Linux，Mac OS X和Windows。以上就是它的特点也是我们做产品或者项目用它的理由。</p>
+<p>到这里相信大家应该都理解了，搞明白了这三个为什么，再做项目就会非常的清晰，有自己的见解；其实还有一个为什么要用webpack，这阵子正在研究webpack，这个留到后面总结。</p>
+<p>本文的所有内容均是一字一句敲上去的，希望大家阅读完本文可以有所收获，因为能力有限，掌握的知识也是不够全面，欢迎大家提出来一起分享！谢谢O(∩_∩)O~</p>
+<p>欢迎访问<strong><a href="https://github.com/YuFy1314" target="_blank" rel="noopener">我的GitHub</a></strong>，喜欢的可以star，项目随意fork，支持转载但要下标注；<br>欢迎光临<strong><a href="https://yufy1314.github.io/" target="_blank" rel="noopener">个人主页</a></strong></p>
+<h6 id="等一下-•́-̫-•̀-，我还有最后一句话："><a href="#等一下-•́-̫-•̀-，我还有最后一句话：" class="headerlink" title="等一下( •́ .̫ •̀ )，我还有最后一句话："></a>等一下( •́ .̫ •̀ )，我还有最后一句话：</h6><h6 id="我爱你，"><a href="#我爱你，" class="headerlink" title="我爱你，"></a>我爱你，</h6><h6 id="我无法确定你是否把我推开，"><a href="#我无法确定你是否把我推开，" class="headerlink" title="我无法确定你是否把我推开，"></a>我无法确定你是否把我推开，</h6><h6 id="我可以确定的是，"><a href="#我可以确定的是，" class="headerlink" title="我可以确定的是，"></a>我可以确定的是，</h6><h6 id="无论你把我推开多少次，"><a href="#无论你把我推开多少次，" class="headerlink" title="无论你把我推开多少次，"></a>无论你把我推开多少次，</h6><h6 id="我都会回来，"><a href="#我都会回来，" class="headerlink" title="我都会回来，"></a>我都会回来，</h6><h6 id="再见…"><a href="#再见…" class="headerlink" title="再见…"></a>再见…</h6><p><img src="http://upload-images.jianshu.io/upload_images/8560482-2c686cd992209688.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/08/08/Vue项目中的一些问题/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/08/08/Vue项目中的一些问题/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+            	<span id="busuanzi_container_site_pv">2018总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>

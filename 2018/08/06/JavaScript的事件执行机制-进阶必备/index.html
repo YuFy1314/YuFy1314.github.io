@@ -151,12 +151,12 @@
 </nav>
 
         <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url(http://i2.hdslb.com/bfs/archive/cd2628934ab7f5e797b164a7dd9d7b7868031feb.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(http://img1.ph.126.net/8OaTrXgMId7-LKWSV_LsKA==/3275242829105720836.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
                 <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >JavaScript的事件执行机制---进阶必备</h2></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <p>本文是承接<a href="https://www.jianshu.com/p/5b1db8806e80" target="_blank" rel="noopener">Promise</a>来说的，大家都知道，JavaScript脚本是单线程的语言，虽然有H5的Web-Worker加持，但是创建出来的子线程完全受主线程控制，且不得操作DOM，所以还是无法改变JavaScript单线程的本质</p>
+                <p>本文是承接<a href="https://yufy1314.github.io/2018/06/15/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAES6%E6%95%99%E7%A8%8B%E3%80%8EPromise%E3%80%8F/" target="_blank" rel="noopener">Promise</a>来说的，大家都知道，JavaScript脚本是单线程的语言，虽然有H5的Web-Worker加持，但是创建出来的子线程完全受主线程控制，且不得操作DOM，所以还是无法改变JavaScript单线程的本质</p>
 <blockquote>
 <p>JavaScript是单线程执行的，无法同时执行多段代码。当某一段代码正在执行的时候，所有后续的任务都必须等待，形成一个队列。一旦当前任务执行完毕，再从队列中取出下一个任务，这也常被称为 “阻塞式执行”。所以一次鼠标点击，或是计时器到达时间点，或是Ajax请求完成触发了回调函数，这些事件处理程序或回调函数都不会立即运行，而是立即排队，一旦线程有空闲就执行。假如当前JavaScript线程正在执行一段很耗时的代码，此时发生了一次鼠标点击，那么事件处理程序就被阻塞，用户也无法立即看到反馈，事件处理程序会被放入任务队列，直到前面的代码结束以后才会开始执行。如果代码中设定了一个setTimeout，那么浏览器便会在合适的时间，将代码插入任务队列，如果这个时间设为0，就代表立即插入队列，但不是立即执行，仍然要等待前面代码执行完毕。所以 setTimeout 并不能保证执行的时间，是否及时执行取决于JavaScript 线程是拥挤还是空闲。</p>
 </blockquote>
