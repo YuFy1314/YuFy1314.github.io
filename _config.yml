@@ -80,4 +80,4 @@ theme: hexo-theme-Mic_Theme
 deploy:
   type: git
   repository: https://github.com/YuFy1314/YuFy1314.github.io.git
-  branch: MiccallTheme
+  branch: blogger
