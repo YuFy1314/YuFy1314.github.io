@@ -21,7 +21,7 @@
 - 下载本主题并且放置于`themes`目录下，更改主题名字，并在站点根目录的配置文件`_config.yml`中启用该主题。
 
 ```
-theme: miccall
+theme: yufy
 ```
 - 在主题的配置文件`_config.yml`中修改相应的值。
 
