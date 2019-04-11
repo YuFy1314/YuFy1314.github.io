@@ -75,7 +75,7 @@
 <style type="text/css">
     .our-team {
         padding: 30px 0 40px;
-        background: #f7f5ec;
+        background-color: rgba(255, 255, 255, 0.175);
         text-align: center;
         overflow: hidden;
         position: relative;
@@ -141,10 +141,18 @@
     .our-team .title {
         font-size: 22px;
         font-weight: 700;
-        color: #4e5052;
+        transition: .5s all;
+        color: #fff;
+        text-shadow: 5px 5px 10px #000;
         letter-spacing: 1px;
         text-transform: capitalize;
         margin-bottom: 5px;
+    }
+
+    .our-team:hover .title{
+        transition: .5s all;
+        color: #18bfef;
+        text-shadow: 5px 5px 10px #fff;
     }
 
     .our-team .post {
