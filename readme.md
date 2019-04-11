@@ -4,6 +4,10 @@
 
 #### 文中哪些不懂的地方可以参考[hexo官方文档](https://hexo.io/zh-cn/), 也可以[new issue](https://github.com/YuFy1314/YuFy1314.github.io/issues/new)
 
+blogger分支: 是整个网站的模板(即hexo的模板), 基本操作查看hexo官方文档:https://hexo.io/zh-cn/docs/
+
+MiccallTheme分支: 是hexo=>theme下的名为hexo-theme-Mic_Theme的一个主题, 主题部分内容讲过修改的, 即此为存档
+
 ## Demo 演示
 
 个人网站 : [YuFy1314](https://yufy1314.github.io/)
