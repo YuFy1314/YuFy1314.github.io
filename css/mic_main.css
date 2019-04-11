@@ -4452,23 +4452,20 @@
 	.post-content img{
 		max-width:100%; 
 	}
-	.post_page_title_img a{
-		position:absolute;
+	.post_page_title_img h2{
+		position: absolute;
 		transition: .5s all;
-		text-shadow:6px 5px 10px #000;
-		padding-top: 20%;
-		border-bottom:none; 
+		text-shadow: 6px 5px 10px #000;
+		font-size: 3.5rem;
+		color: #fff;
+		padding-top: 5rem;
+		padding-left: 6rem;
+		border-bottom: none; 
 	}
-	.post_page_title_img a:hover{
+	.post_page_title_img h2:hover{
 		transition: .5s all;
 		text-shadow: 6px 5px 10px #fff;
-	}
-	.post_page_title_img a:hover > h2{
 		color: #18bfef;
-	}
-	.post_page_title_img a > h2{
-		font-size: 3rem;
-		color: #fff;
 	}
 
 	@media screen and (max-width: 820px) {
