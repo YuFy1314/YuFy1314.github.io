@@ -1,0 +1,114 @@
+# ---------------------------------------------------------------
+# Site Information Settings
+# ---------------------------------------------------------------
+
+# Head info
+head:
+    favicon: "/img/logo.png"
+    keywords: yufy
+    backgroundpic : "img/bg.jpg"
+
+Intro:
+    name: 苏日俪格
+    slogan: "Conceit makes one's progress <br/> Pride make one lag behind"
+    HeadButton: 苏日俪格
+
+Nav:
+    Home_name: Home
+    is_use_categories : true 
+    categories_name: Categories
+    is_use_archives : true
+    archives_name: Archive
+    
+    #Social
+    # for more icons, please see http://fontawesome.io/icons/#brand
+    icon:
+        user: https://yufy1314.github.io/resume/
+        github: https://github.com/YuFy1314
+        book: https://www.jianshu.com/u/72f239ec5d03
+        
+    pages:
+        Resume: 
+            link: "/resume/"
+        website:
+            link: "/website/"
+        #图库 :
+        #    link: "/gallery/"
+        #标签:
+        #   link: "/tag/"
+        #自定义标签名
+        #   link：“路径”
+
+MainFirst:
+    name: YuFy
+    description: This Is My Blog    
+    pic_url: /images/logo.jpg
+    goto_ulr: "https://www.jianshu.com/u/72f239ec5d03"
+
+Gallery :
+    title: Mr.metro 
+    description: Just another fine responsive 
+
+# ---------------------------------------------------------------
+# Style Settings
+# ---------------------------------------------------------------
+
+# Custom code Render System 自定义代码渲染 
+# default dark funky okaidia twilight coy solarized  可选项  
+# link to review : http://prismjs.com/index.html   官网预览
+prism: coy
+
+# Custom Fonts
+fonts: FZLTCXHJW, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "FZLTCXHJW", Arial, sans-serif
+
+# Comment Systems
+# Available value of "use":
+#     duoshuo | disqus | disqus_click | changyan
+comment:
+    use: false
+    shortname: http-miccall-tech 
+    duoshuo_thread_key_type: path
+    duoshuo_embed_js_url: "https://static.duoshuo.com/embed.js"
+    changyan_appid:
+    changyan_conf:
+    changyan_thread_key_type: path
+    # 使用 valine 请先执行 npm install valine --save
+    valine: # Valine Comment System https://github.com/xCss/Valine
+       on: true
+       appId: 'your appId'
+       appKey: 'your appkey'
+       notify: true
+       verify: false
+       placeholder: Please leave your footprints
+       avatar: ''
+       avatar_cdn: https://gravatar.loli.net/avatar/ # avatar CDN address, default gravatar.loli.net
+       pageSize: 10 # comments of one page
+
+# Search Systems
+# Available value:
+#     swiftype | google | local
+search:
+    use: google
+    swiftype_key: Just another fine responsive  
+    
+
+# Leancloud Views
+leancloud:
+    enable: false
+    app_id: #你的 app_id
+    app_key: #你的 app_key
+    av_core_mini: "https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"
+
+# Busuanzi 不蒜子 Views
+busuanzi:
+    enable: true
+    all_site_uv: true
+    post_pv: true
+    busuanzi_pure_mini_js: "https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"
+
+
+# Mathjax 支持库 
+mathjax:
+  enable: true
+  per_page: false
+  cdn: //cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML
