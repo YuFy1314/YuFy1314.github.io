@@ -8,12 +8,11 @@
 
 个人网站 : [YuFy1314](https://yufy1314.github.io/)
 
-主题文章列表: 
-<img src="http://onh0umlhz.bkt.clouddn.com/githubhexothemereadmesecond.png" width="100%" />
-主题文章主页: 
-<img src="http://onh0umlhz.bkt.clouddn.com/githubhexothemereadmepost.png" width="100%" />
-主题图库页: 
-<img src="http://onh0umlhz.bkt.clouddn.com/githubhexothemereadmegallery.png" width="100%" />
+主题主页: 
+<p align="center">
+  <a href="#"><img src="https://github.com/YuFy1314/YuFy1314.github.io/blob/MiccallTheme/source/images/Home_01.png?raw=true" alt="Version"></a>
+   <a href="#"><img src="https://github.com/YuFy1314/YuFy1314.github.io/blob/MiccallTheme/source/images/Home_02.png?raw=true" alt="Version"></a>
+</p>
 
 ## Quick start 快速开始
 
