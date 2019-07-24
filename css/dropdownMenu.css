@@ -62,7 +62,7 @@ This stylesheet and the associated (x)html may be modified in any way to fit you
     top: 100%;
     width: 200%;
     z-index: 500;
-    background-color: #fff;
+    background-color: rgba(255,255,255,0.3);
     -webkit-perspective: 400px;
     -moz-perspective: 400px;
     -ms-perspective: 400px;

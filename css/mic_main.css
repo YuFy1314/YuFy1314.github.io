@@ -143,7 +143,8 @@
 		}
 
 		#intro h1, #intro h2, #intro h3, #intro h4, #intro h5, #intro h6 {
-			font-family: "Source Sans Pro", Helvetica, sans-serif;
+			font-family: cursive, "Source Sans Pro", Helvetica, sans-serif;
+			text-shadow: 10px 5px 15px #000;
 			color: #ffffff;
 		}
 
@@ -198,10 +199,17 @@
 				}
 
 		#intro h1 {
+			transition: .5s all;
 			margin-top: 6rem;
 			letter-spacing:8px;
 			font-size: 6rem;
 			line-height: 1;
+		}
+
+		#intro h1:hover {
+			text-shadow: 10px 5px 15px #fff;
+			color: #18bfef;
+			transition: .5s all;
 		}
 
 		#intro p {
@@ -268,7 +276,7 @@
 		@media screen and (max-width: 1620px){
 			#intro{
 				margin-top: -2rem;
-				margin-bottom: 4rem;
+				margin-bottom: 6rem;
 			}
 		}
 		@media screen and (max-width: 980px) {
@@ -1246,6 +1254,8 @@
 		position: relative;
 		max-width: 72rem;
 		z-index: 5;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
 	}
 
 		#nav ul.divided li {
@@ -1381,6 +1391,11 @@
 			}
 
 		}
+	#nav2{
+		width: 100%;
+		height: 65px;
+		display: none;
+	}
 
 /* Main */
 
@@ -2267,12 +2282,12 @@
 
 			#main {
 				width: 100%;
-				background-color: #fff;
+				background-color: rgba(255, 255, 255, 0.175);
 			}
 
 			.panel {
 				width: 100%;
-				background-color: transparent;
+				background-color: rgba(255, 255, 255, 0.175) !important;
 			}
 
 		/* Me */
@@ -2296,6 +2311,12 @@
 						display: block;
 						border-radius:5px;
 						height: 100%;
+						transition: .5s all;
+					}
+
+					#me .pic img:hover {
+						transition: .5s all;
+						border-radius: 50%;
 					}
 
 					#me .pic .arrow {
@@ -2307,7 +2328,7 @@
 						width: 2.75em;
 						height: 2.75em;
 						background: #000;
-						background: rgba(0, 0, 0, 0.75);
+						background: rgba(0, 0, 0, 0);
 						color: #ffffff;
 						text-align: center;
 						font-size: 1.5em;
@@ -2349,6 +2370,9 @@
 						bottom: 52.5%;
 						font-size: 3.5rem;
 						margin: 0;
+						font-family: unset;
+						color: #eeeeee;
+						text-shadow: 6px 5px 10px #000;
 					}
 
 					#me header > p {
@@ -2358,6 +2382,8 @@
 						font-size: 1.5em;
 						letter-spacing: -0.015em;
 						margin-top: 0;
+						color: #eeeeee;
+						text-shadow: 6px 5px 10px #000;
 					}
 
 	}
@@ -2407,7 +2433,6 @@
 			.panel {
 				padding: 15px 15px 15px 15px;
 				margin: 0 0 7px 0;
-				background: #ffffff;
 				border-radius:5px;
 				box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.25);
 			}
@@ -4167,7 +4192,7 @@
 /* link_box */
 
 	.link_box {
-		background: #fff;
+		background: rgba(255, 255, 255, 0.175);
 		border-radius: 6px;
 		link_box-shadow: 0 2px 0 0 #e5e5e5;
 		margin: 0 0 2em 0;
@@ -4245,7 +4270,24 @@
 
 		.link_box.special {
 			text-align: center;
+			transition: .5s all;
 		}
+
+		section.link_box.special:hover {
+			box-shadow: 1px 1px 20px rgba(0,0,0,0.3);
+			transition: .8s all;
+		}
+		section.link_box.special:hover a{
+			border-bottom-color: transparent;
+			color: #18bfef !important;
+		}
+		section.link_box.special:hover .page_title h1,
+		section.link_box.special:hover .page_title h2,
+		section.link_box.special:hover .page_title h3{
+		transition: .5s all;
+		text-shadow: 6px 5px 10px #fff;
+		color: #18bfef;
+	}
 
 		.link_box .image.featured {
 			border-radius: 0;
@@ -4312,6 +4354,7 @@
 		_height:expression(this.height > 400 ? "400px" : this.height);
 	}
 	.page_title h1{
+		transition: .5s all;
 		position:absolute;
 		font-size: 3rem;
 		text-shadow:6px 5px 10px #000;
@@ -4321,6 +4364,7 @@
 		color:#eeeeee;
 	}
 	.page_title h2{
+		transition: .5s all;
 		position:absolute;
 		font-size: 2rem;
 		font-weight: bold;
@@ -4330,6 +4374,7 @@
 		color:#eeeeee;
 	}
 	.page_title h3{
+		transition: .5s all;
 		position:absolute;
 		font-size: 1rem;
 		font-weight: bold;
@@ -4418,15 +4463,20 @@
 	.post-content img{
 		max-width:100%; 
 	}
-	.post_page_title_img a{
-		position:absolute;
-		text-shadow:6px 5px 10px #000;
-		padding-top: 20%;
-		border-bottom:none; 
-	}
-	.post_page_title_img a > h2{
-		font-size: 3rem;
+	.post_page_title_img h2{
+		position: absolute;
+		transition: .5s all;
+		text-shadow: 6px 5px 10px #000;
+		font-size: 3.5rem;
 		color: #fff;
+		padding-top: 5rem;
+		padding-left: 6rem;
+		border-bottom: none; 
+	}
+	.post_page_title_img h2:hover{
+		transition: .5s all;
+		text-shadow: 6px 5px 10px #fff;
+		color: #18bfef;
 	}
 
 	@media screen and (max-width: 820px) {
@@ -4450,5 +4500,3 @@
 			padding-top: 50%;
 		}
 	}
-
-

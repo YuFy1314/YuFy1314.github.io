@@ -175,7 +175,7 @@ pre, code, pre tt {
 }
 
 pre {
-  background: #f8f8f8;
+  background: #f7f6f67d;
   border: 1px solid #ddd;
   padding: 1em 1.5em;
   display: block;
@@ -306,7 +306,7 @@ h1, h2, h3, h4, h5, h6 {
 .typo table th, .typo table td, .typo-table th, .typo-table td, .typo table caption {
   border: 1px solid #ddd;
   padding: 0.5em 1em;
-  color: #666;
+  color: #333;
 }
 
 .typo table th, .typo-table th {
