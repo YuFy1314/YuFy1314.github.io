@@ -189,11 +189,69 @@
 <li>在根目录下创建一个src文件夹，在src下创建一个入口文件index.js和一个vue入口app.vue，所有的模块化操作都是在webpack.config.js下完成的，将该文件放在根目录，因为我没用vue-cli，所以所有的文件需要手动引入，再引入我们的一些css和img的静态资源，把项目的整体结构按照脚手架的结构进行搭建，vue-cli模板不能直接嵌套进项目中，必须理解脚手架，手动的去构建vue项目</li>
 </ol>
 <p><img src="https://upload-images.jianshu.io/upload_images/8560482-edee794e3a2f2169.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>app.vue文件:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">export default &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
-<p>index.js文件:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;;</span><br><span class="line">import App from &apos;./app.vue&apos;;</span><br><span class="line"></span><br><span class="line">import &apos;./assets/style/test.css&apos;;</span><br><span class="line"></span><br><span class="line">var vm = new Vue(&#123;</span><br><span class="line">    el: &apos;#app&apos;,</span><br><span class="line">    render: (h) =&gt; h(App)  // 通过创建DOM元素返回参数h将App挂载，h即为hyperscript，用来实现虚拟DOM的</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>webpack.config.js文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">const Path = require(&apos;path&apos;); // 从node上导入path</span><br><span class="line">const VueLoaderPlugin = require(&apos;vue-loader/lib/plugin&apos;);  // webpack 4版本之后加的，之前的版本不需要这个</span><br><span class="line"></span><br><span class="line">let config = &#123;</span><br><span class="line">    entry: Path.resolve(__dirname, &apos;./src/index.js&apos;), // 以join拼接path的形式配置绝对路径,相对路径打包后找不到会报错</span><br><span class="line">    output: &#123;</span><br><span class="line">        filename: &apos;vendor.build.js&apos;,</span><br><span class="line">        path: Path.join(__dirname, &apos;dist&apos;)</span><br><span class="line">    &#125;,</span><br><span class="line">    module: &#123;</span><br><span class="line">        rules: [&#123;</span><br><span class="line">            test: /\.vue$/,</span><br><span class="line">            loader: &apos;vue-loader&apos;</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            test: /\.css$/,</span><br><span class="line">            use: [</span><br><span class="line">                &apos;style-loader&apos;,</span><br><span class="line">                &apos;css-loader&apos;</span><br><span class="line">            ]</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            test: /\.(png|jpg|jpeg|gif)$/,</span><br><span class="line">            use: &#123;</span><br><span class="line">                loader: &apos;url-loader&apos;,</span><br><span class="line">                options: &#123;</span><br><span class="line">                    limit: 1024, // 判断图片的大小   如果小于1024就会转换成base64</span><br><span class="line">                    name: &apos;[name].[ext]&apos; // 输出图片的名字  ext是扩展名</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        new VueLoaderPlugin()</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">module.exports = config;</span><br></pre></td></tr></table></figure></p>
-<p>上面配置好了之后还差最后一步，就是用webpack来执行配置跑项目，在scripts里面加上build：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;build&quot;: &quot;webpack --config webpack.config.js&quot;</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/8560482-6d7bde024d13ba3e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>app.vue文件:</p>
+<pre><code>&lt;template&gt;
+    &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+export default {
+
+}
+&lt;/script&gt;
+
+&lt;style&gt;
+&lt;/style&gt;
+</code></pre><p>index.js文件:</p>
+<pre><code>import Vue from &#39;vue&#39;;
+import App from &#39;./app.vue&#39;;
+
+import &#39;./assets/style/test.css&#39;;
+
+var vm = new Vue({
+    el: &#39;#app&#39;,
+    render: (h) =&gt; h(App)  // 通过创建DOM元素返回参数h将App挂载，h即为hyperscript，用来实现虚拟DOM的
+});
+</code></pre><p>webpack.config.js文件：</p>
+<pre><code>const Path = require(&#39;path&#39;); // 从node上导入path
+const VueLoaderPlugin = require(&#39;vue-loader/lib/plugin&#39;);  // webpack 4版本之后加的，之前的版本不需要这个
+
+let config = {
+    entry: Path.resolve(__dirname, &#39;./src/index.js&#39;), // 以join拼接path的形式配置绝对路径,相对路径打包后找不到会报错
+    output: {
+        filename: &#39;vendor.build.js&#39;,
+        path: Path.join(__dirname, &#39;dist&#39;)
+    },
+    module: {
+        rules: [{
+            test: /\.vue$/,
+            loader: &#39;vue-loader&#39;
+        }, {
+            test: /\.css$/,
+            use: [
+                &#39;style-loader&#39;,
+                &#39;css-loader&#39;
+            ]
+        }, {
+            test: /\.(png|jpg|jpeg|gif)$/,
+            use: {
+                loader: &#39;url-loader&#39;,
+                options: {
+                    limit: 1024, // 判断图片的大小   如果小于1024就会转换成base64
+                    name: &#39;[name].[ext]&#39; // 输出图片的名字  ext是扩展名
+                }
+            }
+        }]
+    },
+    plugins: [
+        new VueLoaderPlugin()
+    ]
+};
+
+module.exports = config;
+</code></pre><p>上面配置好了之后还差最后一步，就是用webpack来执行配置跑项目，在scripts里面加上build：</p>
+<pre><code>&quot;build&quot;: &quot;webpack --config webpack.config.js&quot;
+</code></pre><p><img src="https://upload-images.jianshu.io/upload_images/8560482-6d7bde024d13ba3e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <ol start="2">
 <li>执行<code>npm run build</code>来打包项目到dist下面的vendor.build.js：</li>
 </ol>
@@ -212,22 +270,34 @@
 </ol>
 <p><img src="https://upload-images.jianshu.io/upload_images/8560482-2266e7e6fa40759b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <ol start="3">
-<li>需要配置一个环境变量来区分我们的生产环境和开发环境，输入dos命令<code>npm i cross-env</code>，在打包和运行之前都加上环境变量标识：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;build&quot;: &quot;cross-env NODE_ENV=production webpack --config webpack.config.js&quot;,</span><br><span class="line">&quot;dev&quot;: &quot;cross-env NODE_ENV=development webpack-dev-server --config webpack.config.js&quot;,</span><br></pre></td></tr></table></figure>
+<li><p>需要配置一个环境变量来区分我们的生产环境和开发环境，输入dos命令<code>npm i cross-env</code>，在打包和运行之前都加上环境变量标识：</p>
+<pre><code>&quot;build&quot;: &quot;cross-env NODE_ENV=production webpack --config webpack.config.js&quot;,
+&quot;dev&quot;: &quot;cross-env NODE_ENV=development webpack-dev-server --config webpack.config.js&quot;,
+</code></pre><p>个人习惯：喜欢运行start，所以把run dev替换掉了：<code>&quot;start&quot;: &quot;npm run dev&quot;</code><br>效果如下：<br><img src="https://upload-images.jianshu.io/upload_images/8560482-b222c7507f55ab7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 </li>
-</ol>
-<p>个人习惯：喜欢运行start，所以把run dev替换掉了：<code>&quot;start&quot;: &quot;npm run dev&quot;</code><br>效果如下：<br><img src="https://upload-images.jianshu.io/upload_images/8560482-b222c7507f55ab7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<ol start="4">
-<li>再从webpack的配置里加个判断，如果是开发环境，就把我们的webpack服务放进去：</li>
+<li><p>再从webpack的配置里加个判断，如果是开发环境，就把我们的webpack服务放进去：</p>
+</li>
 </ol>
 <p>首先用一个变量代表是开发环境：<code>const isDev = process.env.NODE_ENV === &#39;development&#39;;</code>在package.json scripts里面设置的生产和开发环境的环境变量都存在于cross-dev，我们设置脚本的时候启动的环境变量全都存在于process.env里面，这样我们在之后可以随意调用它</p>
-<p>然后在最下面给module.exports赋值之前，加个判断：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if (isDev) &#123;</span><br><span class="line">    config.devServer = &#123;</span><br><span class="line">        port: 8088, // webpack服务需要监听的端口号</span><br><span class="line">        host: &apos;0.0.0.0&apos;, // 可以通过本机内网ip访问,这样别人也可以访问,手机也可访问,如果设置成localhost则不然</span><br><span class="line">        overlay: &#123;</span><br><span class="line">            errors: true // 这个可有可无,webpack编译出现的错误会出现在网页中,便于更改</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>上述代码中的配置项我们在webpack官网中都可以看得到，每一步的原因我已在后面加了相关注释。</p>
+<p>然后在最下面给module.exports赋值之前，加个判断：</p>
+<pre><code>if (isDev) {
+    config.devServer = {
+        port: 8088, // webpack服务需要监听的端口号
+        host: &#39;0.0.0.0&#39;, // 可以通过本机内网ip访问,这样别人也可以访问,手机也可访问,如果设置成localhost则不然
+        overlay: {
+            errors: true // 这个可有可无,webpack编译出现的错误会出现在网页中,便于更改
+        }
+    };
+}
+</code></pre><p>上述代码中的配置项我们在webpack官网中都可以看得到，每一步的原因我已在后面加了相关注释。</p>
 <ol start="5">
-<li>引入webpack，以便之后用webpack的插件，下面会用到DefinePlugin这个插件（ps:做vue或react的项目必须用到的，这些项目都会根据环境来区分打包）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const Webpack = require(&apos;webpack&apos;);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>用法和之前的一样，所有的插件都是需要引入并创建实例这一过程；下面根据之前配置好的环境变量在webpack编译的过程中，对写的js代码都会判断环境，根据不同环境对代码进行打包(我们只想要”development”,所以外面会加上单引号)，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">new Webpack.DefinePlugin(&#123;</span><br><span class="line">            &apos;process-env&apos;: &#123;</span><br><span class="line">                NODE_ENV: isDev ? &apos;&quot;development&quot;&apos; : &apos;&quot;production&quot;&apos;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure></p>
-<ol start="6">
+<li>引入webpack，以便之后用webpack的插件，下面会用到DefinePlugin这个插件（ps:做vue或react的项目必须用到的，这些项目都会根据环境来区分打包）<pre><code>const Webpack = require(&#39;webpack&#39;);
+</code></pre>用法和之前的一样，所有的插件都是需要引入并创建实例这一过程；下面根据之前配置好的环境变量在webpack编译的过程中，对写的js代码都会判断环境，根据不同环境对代码进行打包(我们只想要”development”,所以外面会加上单引号)，代码如下：<pre><code>new Webpack.DefinePlugin({
+         &#39;process-env&#39;: {
+             NODE_ENV: isDev ? &#39;&quot;development&quot;&#39; : &#39;&quot;production&quot;&#39;
+         }
+     })
+</code></pre></li>
 <li>这也是最后一步，我们到现在为止还没有一个网页入口，先安装一个html-webpack-plugin，同样的引入配置好了，运行一下项目就ok了</li>
 </ol>
 <p><img src="https://upload-images.jianshu.io/upload_images/8560482-a568d24297cea860.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
