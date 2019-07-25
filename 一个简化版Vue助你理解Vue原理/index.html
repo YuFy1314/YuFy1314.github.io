@@ -153,7 +153,7 @@
 </nav>
 
         <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url(http://img1.ph.126.net/N9A0TbRpqHPYE1mDrTgQ7w==/1243274972231348824.png);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://github.com/YuFy1314/YuFy1314.github.io/blob/master/images/blog-bg/vue.png?raw=true);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
                 <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >一个简化版Vue助你理解Vue原理</h2></a>
             </div>
             <!-- Post -->
@@ -168,103 +168,10 @@
 </ul>
 </blockquote>
 <p>由于Vue就是一个MVVM的框架理念，所以就要通过<code>Object.defineProperty()</code>方法来劫持并监听所有属性值相关的数据，看看它是否变化，如有变化则通知订阅器watcher看是否需要视图更新，这一过程就是我们的数据监听器<code>observe</code>的工作任务，由于数据和订阅器是一对多的关系，所以通知订阅器的时候需要把数据对应的订阅器的集合都放在一个<code>oWatcherObj</code>对象中，接下来需要一个节点DOM解析器<code>compile</code>，主要用来迭代递归获取和解析每一个节点及其指令，根据初始化的模板数据来创建订阅器<code>watcher</code>，实例化watcher就会接到数据变化的通知，进而实现VM更新视图</p>
-<p>template：</p>
-<pre><code>&lt;div id=&quot;simpleVue&quot;&gt;
-    &lt;button yf-on:click=&quot;copy&quot;&gt;戳我&lt;/button&gt;
-    &lt;div&gt;
-        &lt;textarea yf-model=&quot;name&quot;&gt;&lt;/textarea&gt;
-        &lt;div yf-text=&quot;name&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;hr&gt;
-    &lt;button yf-on:click=&quot;show&quot;&gt;显示/隐藏&lt;/button&gt;
-    &lt;div yf-if=&quot;isShow&quot;&gt;
-        &lt;input type=&quot;text&quot; yf-model=&quot;webSite&quot;&gt;
-        &lt;div yf-text=&quot;webSite&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre><p>SimpleVue构造：</p>
-<pre><code>class SimpleVue { // 简化版Vue实例的构造 用来接收实例的配置项
-    constructor(options) {
-        this.$el = document.querySelector(options.el);
-        this.$data = options.data;
-        this.$methods = options.methods;
-        this.oWatcherObj = {}; // 所有属性值相关的数据对应的订阅器的集合都放在该对象中
-        this.observe(); // 调用数据监听器对属性值相关的数据进行劫持并监听
-        this.compile(this.$el); // 对该DOM节点进行解析
-    }
-    observe() { // 数据监听器 用来劫持并监听属性值相关数据的变化 如有变化则通知订阅器watcher
-        for (let key in this.$data) {
-            let value = this.$data[key];
-            this.oWatcherObj[key] = []; // 初始化该数据的订阅器 数据和订阅器的关系是一对多
-            let oWatcherObj = this.oWatcherObj[key];
-            Object.defineProperty(this.$data, key, { // 关键方法 可以修改对象身上的默认属性值的ES5方法 下面用到的是ES中两大属性中的访问器属性,有以下四种描述符对象
-                configurable: false, // 该状态下的属性描述符不能被修改和删除
-                enumerable: false, // 该状态下的属性描述符中的属性不可被枚举
-                get() { // 属性值相关的数据读取函数
-                    return value;
-                },
-                set(newVal) { // 属性值相关的数据写入函数
-                    if (newVal !== value) {
-                        value = newVal;
-                        oWatcherObj.forEach((obj) =&gt; {
-                            obj.update(); // 通知和该数据相关的所有订阅器
-                        });
-                    }
-                }
-            });
-        }
-    }
-    compile(el) { // 节点DOM解析器 用来获取和解析每一个节点及其指令 根据初始化的模板数据来创建订阅器watcher
-        let nodes = el.children;
-        for (let i = 0; i &lt; nodes.length; i++) { // 迭代同级所有节点
-            let node = nodes[i];
-            if (node.children.length &gt; 0) {
-                this.compile(node); // 递归所有子节点
-            }
-            if (node.hasAttribute(&#39;yf-on:click&#39;)) { // 节点中如存在该指令则执行以下操作
-                let eventAttrVal = node.getAttribute(&#39;yf-on:click&#39;);
-                node.addEventListener(&#39;click&#39;, this.$methods[eventAttrVal].bind(this.$data)); // 绑定获取到的指令对应的数据所触发的方法
-            }
-            if (node.hasAttribute(&#39;yf-if&#39;)) {
-                let ifAttrVal = node.getAttribute(&#39;yf-if&#39;);
-                this.oWatcherObj[ifAttrVal].push(new Watcher(this, node, &quot;&quot;, ifAttrVal)); // 给该指令对应的数据创建订阅器放在该数据对应的订阅器数组里
-            }
-            if (node.hasAttribute(&#39;yf-model&#39;)) {
-                let modelAttrVal = node.getAttribute(&#39;yf-model&#39;);
-                node.addEventListener(&#39;input&#39;, ((i) =&gt; { // 前方高能:此处有闭包请绕行!!! i的问题
-                    this.oWatcherObj[modelAttrVal].push(new Watcher(this, node, &quot;value&quot;, modelAttrVal));
-                    return () =&gt; {
-                        this.$data[modelAttrVal] = nodes[i].value; // 将该指令所在节点的值扔给该指令的数据
-                    }
-                })(i));
-            }
-            if (node.hasAttribute(&#39;yf-text&#39;)) {
-                let textAttrVal = node.getAttribute(&#39;yf-text&#39;);
-                this.oWatcherObj[textAttrVal].push(new Watcher(this, node, &quot;innerText&quot;, textAttrVal));
-            }
-        }
-    }
-}
-</code></pre><p>订阅器构造：</p>
-<pre><code>class Watcher { // 订阅器构造 用来接收属性值的相关数据的变化通知 从而更新视图
-    constructor(...arg) {
-        this.vm = arg[0];
-        this.el = arg[1];
-        this.attr = arg[2];
-        this.val = arg[3];
-        this.update(); // 初始化订阅器时更新一下视图
-    }
-    update() { // 将收到的新的数据更新在视图中从而实现真正的VM
-        if (this.vm.$data[this.val] === true) {
-            this.el.style.display = &#39;block&#39;;
-        } else if (this.vm.$data[this.val] === false) {
-            this.el.style.display = &#39;none&#39;;
-        } else {
-            this.el[this.attr] = this.vm.$data[this.val];
-        }
-    }
-}
-</code></pre><h3 id="Shortcuts"><a href="#Shortcuts" class="headerlink" title="Shortcuts"></a>Shortcuts</h3><ul>
+<p>template：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div id=&quot;simpleVue&quot;&gt;</span><br><span class="line">    &lt;button yf-on:click=&quot;copy&quot;&gt;戳我&lt;/button&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;textarea yf-model=&quot;name&quot;&gt;&lt;/textarea&gt;</span><br><span class="line">        &lt;div yf-text=&quot;name&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;hr&gt;</span><br><span class="line">    &lt;button yf-on:click=&quot;show&quot;&gt;显示/隐藏&lt;/button&gt;</span><br><span class="line">    &lt;div yf-if=&quot;isShow&quot;&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; yf-model=&quot;webSite&quot;&gt;</span><br><span class="line">        &lt;div yf-text=&quot;webSite&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>SimpleVue构造：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class SimpleVue &#123; // 简化版Vue实例的构造 用来接收实例的配置项</span><br><span class="line">    constructor(options) &#123;</span><br><span class="line">        this.$el = document.querySelector(options.el);</span><br><span class="line">        this.$data = options.data;</span><br><span class="line">        this.$methods = options.methods;</span><br><span class="line">        this.oWatcherObj = &#123;&#125;; // 所有属性值相关的数据对应的订阅器的集合都放在该对象中</span><br><span class="line">        this.observe(); // 调用数据监听器对属性值相关的数据进行劫持并监听</span><br><span class="line">        this.compile(this.$el); // 对该DOM节点进行解析</span><br><span class="line">    &#125;</span><br><span class="line">    observe() &#123; // 数据监听器 用来劫持并监听属性值相关数据的变化 如有变化则通知订阅器watcher</span><br><span class="line">        for (let key in this.$data) &#123;</span><br><span class="line">            let value = this.$data[key];</span><br><span class="line">            this.oWatcherObj[key] = []; // 初始化该数据的订阅器 数据和订阅器的关系是一对多</span><br><span class="line">            let oWatcherObj = this.oWatcherObj[key];</span><br><span class="line">            Object.defineProperty(this.$data, key, &#123; // 关键方法 可以修改对象身上的默认属性值的ES5方法 下面用到的是ES中两大属性中的访问器属性,有以下四种描述符对象</span><br><span class="line">                configurable: false, // 该状态下的属性描述符不能被修改和删除</span><br><span class="line">                enumerable: false, // 该状态下的属性描述符中的属性不可被枚举</span><br><span class="line">                get() &#123; // 属性值相关的数据读取函数</span><br><span class="line">                    return value;</span><br><span class="line">                &#125;,</span><br><span class="line">                set(newVal) &#123; // 属性值相关的数据写入函数</span><br><span class="line">                    if (newVal !== value) &#123;</span><br><span class="line">                        value = newVal;</span><br><span class="line">                        oWatcherObj.forEach((obj) =&gt; &#123;</span><br><span class="line">                            obj.update(); // 通知和该数据相关的所有订阅器</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    compile(el) &#123; // 节点DOM解析器 用来获取和解析每一个节点及其指令 根据初始化的模板数据来创建订阅器watcher</span><br><span class="line">        let nodes = el.children;</span><br><span class="line">        for (let i = 0; i &lt; nodes.length; i++) &#123; // 迭代同级所有节点</span><br><span class="line">            let node = nodes[i];</span><br><span class="line">            if (node.children.length &gt; 0) &#123;</span><br><span class="line">                this.compile(node); // 递归所有子节点</span><br><span class="line">            &#125;</span><br><span class="line">            if (node.hasAttribute(&apos;yf-on:click&apos;)) &#123; // 节点中如存在该指令则执行以下操作</span><br><span class="line">                let eventAttrVal = node.getAttribute(&apos;yf-on:click&apos;);</span><br><span class="line">                node.addEventListener(&apos;click&apos;, this.$methods[eventAttrVal].bind(this.$data)); // 绑定获取到的指令对应的数据所触发的方法</span><br><span class="line">            &#125;</span><br><span class="line">            if (node.hasAttribute(&apos;yf-if&apos;)) &#123;</span><br><span class="line">                let ifAttrVal = node.getAttribute(&apos;yf-if&apos;);</span><br><span class="line">                this.oWatcherObj[ifAttrVal].push(new Watcher(this, node, &quot;&quot;, ifAttrVal)); // 给该指令对应的数据创建订阅器放在该数据对应的订阅器数组里</span><br><span class="line">            &#125;</span><br><span class="line">            if (node.hasAttribute(&apos;yf-model&apos;)) &#123;</span><br><span class="line">                let modelAttrVal = node.getAttribute(&apos;yf-model&apos;);</span><br><span class="line">                node.addEventListener(&apos;input&apos;, ((i) =&gt; &#123; // 前方高能:此处有闭包请绕行!!! i的问题</span><br><span class="line">                    this.oWatcherObj[modelAttrVal].push(new Watcher(this, node, &quot;value&quot;, modelAttrVal));</span><br><span class="line">                    return () =&gt; &#123;</span><br><span class="line">                        this.$data[modelAttrVal] = nodes[i].value; // 将该指令所在节点的值扔给该指令的数据</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)(i));</span><br><span class="line">            &#125;</span><br><span class="line">            if (node.hasAttribute(&apos;yf-text&apos;)) &#123;</span><br><span class="line">                let textAttrVal = node.getAttribute(&apos;yf-text&apos;);</span><br><span class="line">                this.oWatcherObj[textAttrVal].push(new Watcher(this, node, &quot;innerText&quot;, textAttrVal));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>订阅器构造：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class Watcher &#123; // 订阅器构造 用来接收属性值的相关数据的变化通知 从而更新视图</span><br><span class="line">    constructor(...arg) &#123;</span><br><span class="line">        this.vm = arg[0];</span><br><span class="line">        this.el = arg[1];</span><br><span class="line">        this.attr = arg[2];</span><br><span class="line">        this.val = arg[3];</span><br><span class="line">        this.update(); // 初始化订阅器时更新一下视图</span><br><span class="line">    &#125;</span><br><span class="line">    update() &#123; // 将收到的新的数据更新在视图中从而实现真正的VM</span><br><span class="line">        if (this.vm.$data[this.val] === true) &#123;</span><br><span class="line">            this.el.style.display = &apos;block&apos;;</span><br><span class="line">        &#125; else if (this.vm.$data[this.val] === false) &#123;</span><br><span class="line">            this.el.style.display = &apos;none&apos;;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            this.el[this.attr] = this.vm.$data[this.val];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Shortcuts"><a href="#Shortcuts" class="headerlink" title="Shortcuts"></a>Shortcuts</h3><ul>
 <li><a href="https://yufy1314.github.io/simpleVue/">戳我运行代码</a></li>
 <li><a href="https://github.com/YuFy1314/simpleVue" target="_blank" rel="noopener">Edit on GitHub</a></li>
 <li><a href="https://jsfiddle.net/yufy_info/51zuhjwf/26/" target="_blank" rel="noopener">Try in JSFiddle</a></li>
