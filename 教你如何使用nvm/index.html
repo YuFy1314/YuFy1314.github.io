@@ -153,7 +153,7 @@
 </nav>
 
         <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url(http://img1.ph.126.net/Pp7OlAYihFstCh41q54NEQ==/1963569437633965030.png);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://github.com/YuFy1314/YuFy1314.github.io/blob/master/images/blog-bg/node.jpg?raw=true);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
                 <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >教你如何使用nvm</h2></a>
             </div>
             <!-- Post -->
@@ -164,10 +164,10 @@
 <blockquote>
 <h4 id="nvm的使用"><a href="#nvm的使用" class="headerlink" title="nvm的使用"></a>nvm的使用</h4><p>参考☛☛☛<a href="https://segmentfault.com/a/1190000007612011" target="_blank" rel="noopener">https://segmentfault.com/a/1190000007612011</a><br>下载：<a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank" rel="noopener">https://github.com/coreybutler/nvm-windows/releases</a></p>
 </blockquote>
-<p>将nvm下载下来，上面的链接中有免安装版和安装板，我选择傻瓜式安装，完成之后找到你的nvm的安装目录，有一个settings.txt文件，打开之后把下面的代码复制进去：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arch: 64 </span><br><span class="line">proxy: none </span><br><span class="line">node_mirror: http://npm.taobao.org/mirrors/node/ </span><br><span class="line">npm_mirror: https://npm.taobao.org/mirrors/npm/</span><br></pre></td></tr></table></figure></p>
+<p>将nvm下载下来，上面的链接中有免安装版和安装板，我选择傻瓜式安装，完成之后找到你的nvm的安装目录，有一个settings.txt文件，打开之后把下面的代码复制进去：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">arch: 64 </span><br><span class="line">proxy: none </span><br><span class="line">node_mirror: http://npm.taobao.org/mirrors/node/ </span><br><span class="line">npm_mirror: https://npm.taobao.org/mirrors/npm/</span><br></pre></td></tr></table></figure></p>
 <p>效果图：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/8560482-da1a1864fe5900ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>把上面的四行代码复制到root的path的下面，然后保存关闭，在你的命令提示符中输入<code>nvm v</code> 会有一个你刚才安装的nvm的版本，接着有几个命令是一定用得到的，来可以更好的管理node<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nvm list  // 你本机中所有的node的版本列表</span><br><span class="line">nvm install latest  // 安装最新版本</span><br><span class="line">nvm install 4.8.4  // 安装指定版本</span><br><span class="line">nvm install 4.8.4 32  // 安装指定版本并且指定位数 32位  默认是64位的</span><br><span class="line">nvm use 10.8.0  // 当前使用版本</span><br></pre></td></tr></table></figure></p>
+<p>把上面的四行代码复制到root的path的下面，然后保存关闭，在你的命令提示符中输入<code>nvm v</code> 会有一个你刚才安装的nvm的版本，接着有几个命令是一定用得到的，来可以更好的管理node<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nvm list  // 你本机中所有的node的版本列表</span><br><span class="line">nvm install latest  // 安装最新版本</span><br><span class="line">nvm install 4.8.4  // 安装指定版本</span><br><span class="line">nvm install 4.8.4 32  // 安装指定版本并且指定位数 32位  默认是64位的</span><br><span class="line">nvm use 10.8.0  // 当前使用版本</span><br></pre></td></tr></table></figure></p>
 <p>安装的node会在nvm路径下看到，而且在命令行中可以查看我们当前用的是哪一个版本，用webpack 4.0之后的版本对项目进行打包需要用到高版本的node，应该是node 8.5版本之后的，我安装了最新的。</p>
 <p>成功安装之后，如果不能用的话，就看你的电脑里的系统变量是否配置成功：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/8560482-35caee11fc7f373b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
@@ -181,7 +181,7 @@
 <p><img src="https://upload-images.jianshu.io/upload_images/8560482-b86c14dc61485a6f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>由于webpack 4的ES6的加持，以及V8引擎的优化，支持更高ES6语法糖的node环境也是很有必要的！</p>
 <p>本文的所有内容均是一字一句敲上去的，希望大家阅读完本文可以有所收获，因为能力有限，掌握的知识也是不够全面，欢迎大家提出来一起分享！谢谢O(∩_∩)O~</p>
-<p>欢迎访问<strong><a href="https://github.com/YuFy1314" target="_blank" rel="noopener">我的GitHub</a></strong>，喜欢的可以star，项目随意fork，支持转载但要下标注；<br>欢迎光临<strong><a href="https://yufy1314.github.io/" target="_blank" rel="noopener">个人主页</a></strong></p>
+<p>欢迎访问<strong><a href="https://github.com/YuFy1314" target="_blank" rel="noopener">我的GitHub</a></strong>，喜欢的可以star，项目随意fork，支持转载但要下标注；<br>欢迎光临<strong><a href="https://yufy1314.github.io/">个人主页</a></strong></p>
 <h6 id="等一下-•́-̫-•̀-，我还有最后一句话："><a href="#等一下-•́-̫-•̀-，我还有最后一句话：" class="headerlink" title="等一下( •́ .̫ •̀ )，我还有最后一句话："></a>等一下( •́ .̫ •̀ )，我还有最后一句话：</h6><h6 id="人活在世界上，"><a href="#人活在世界上，" class="headerlink" title="人活在世界上，"></a>人活在世界上，</h6><h6 id="重要的是爱人的能力，"><a href="#重要的是爱人的能力，" class="headerlink" title="重要的是爱人的能力，"></a>重要的是爱人的能力，</h6><h6 id="而不是被爱，"><a href="#而不是被爱，" class="headerlink" title="而不是被爱，"></a>而不是被爱，</h6><h6 id="我们不懂得爱人又如何能被人所爱。"><a href="#我们不懂得爱人又如何能被人所爱。" class="headerlink" title="我们不懂得爱人又如何能被人所爱。"></a>我们不懂得爱人又如何能被人所爱。</h6><p><img src="http://upload-images.jianshu.io/upload_images/8560482-2c686cd992209688.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 
             </div>
